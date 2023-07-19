@@ -17,7 +17,6 @@ class SelectDishToCartsController < ApplicationController
 		if select_dish.destroy!
 			render json: { message: "Dish deleted successfully" }, status: :ok 
 		end
-	 
 	end
 
 	private
@@ -25,6 +24,5 @@ class SelectDishToCartsController < ApplicationController
 	def select_params
 		params.permit(:dish_id, :restaurant_id)
 	end
-
-
+	
 end

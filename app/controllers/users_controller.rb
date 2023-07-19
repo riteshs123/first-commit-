@@ -22,7 +22,6 @@ class UsersController < ApplicationController
 
 	def destroy
 		begin
-			# @user = User.find_by(id: params[:id])
 			@user.destroy
 			render json: { message: 'user deleted successfully' },status: :ok
 		rescue

@@ -58,4 +58,5 @@ class RestaurantsController < ApplicationController
 	def update_restaurant
 		params.permit(:name, :status, :image)
 	end
+	
 end
