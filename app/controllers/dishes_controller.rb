@@ -6,12 +6,12 @@ class DishesController < ApplicationController
 
 	def index
 		if params[:name].present?
-			@dishes = Dish.where('lower(name) LIKE ?', "%#{params[:name].downcase}%")
+			@dishes = Restaurant.includes(:dishes).where(dishes: {name: "#{params[:name]}"})
 		else
 			@dishes = Dish.all
 		end
 		render json: paginate_collection(@dishes)
-	end
+	end    
 
 	def create
 		dish = @restaurant.dishes.new(dish_params)

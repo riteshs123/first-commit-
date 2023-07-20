@@ -3,8 +3,8 @@ class SelectDishToCartsController < ApplicationController
 
 	def create
 		return cart = Cart.create(user_id:@current_user.id) unless @current_user.cart.present?
-		@cart = @current_user.cart
-		select_dish = @cart.select_dish_for_carts.new(select_params)
+		cart = @current_user.cart
+		select_dish = cart.select_dish_for_carts.new(select_params)
 		if select_dish.save
 			render json: select_dish, status: :created
 		else

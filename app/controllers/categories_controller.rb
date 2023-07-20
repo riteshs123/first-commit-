@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
 
 	def index
 		if params[:name].present?
-			@category = Category.where('lower(name) LIKE ?', "%#{params[:name].downcase}%")
+			@categories = Category.where('lower(name) LIKE ?', "%#{params[:name].downcase}%")
 		else
 			@categories = Category.all
 		end

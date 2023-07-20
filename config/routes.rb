@@ -11,7 +11,7 @@ Rails.application.routes.draw do
  get '/dish/:name', to: 'dishes#search'
  
  # resources :categories
- get '/category', to: 'categories#search'
+ # get '/category', to: 'categories#search'
  
  # resources :select_dish_to_carts
  # resources :bills

@@ -42,7 +42,7 @@ class RestaurantsController < ApplicationController
 
 	def status_restaurant
 		if params[:status].present?
-			@status = Restaurant.where(status: params[:status])
+			@status = Restaurant.where("status LIKE '%#{params[:status]}%'")
 		else
 			@status = Restaurant.where(status: 'open')
 		end

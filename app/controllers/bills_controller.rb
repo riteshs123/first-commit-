@@ -1,5 +1,10 @@
 class BillsController < ApplicationController
 
+	def index
+		bills = Bill.all
+		render json: paginate_collection(bills)
+	end
+
 	def create
 		bill = create_bill(params[:cart_id])
 		return render json: { message: "Failed to create bill" }, status: :unprocessable_entity unless bill.save
